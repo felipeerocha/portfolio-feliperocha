@@ -1,0 +1,937 @@
+/* ESTILO GERAL */
+* {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #e2e2e2;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    padding: 30px;
+}
+
+h2.titulo {
+    color: #111111;
+    font-size: 38px;
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 90px; /* Adiciona uma margem inferior de 20 pixels */
+}
+
+h2.titulo-2 {
+    margin-top: 0px;
+    color: #111111;
+    font-size: 38px;
+    text-align: center;
+
+}
+
+h2.titulo-projeto {
+    color: #e2e2e2;
+    font-size: 38px;
+    text-align: center;
+    margin-top: -60px;
+    margin-bottom: 90px; /* Adiciona uma margem inferior de 20 pixels */
+}
+
+h2.titulo span{
+    color: #3cd5b3;
+}
+
+h2.titulo-2 span{
+    color: #3cd5b3;
+}
+
+h2.titulo-projeto span{
+    color: #3cd5b3;
+}
+
+/* ESTILO DO CABEÇALHO */
+header {
+    padding: 10px 4%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #111111; /* Certifique-se de adicionar a cor de fundo para cobrir a área */
+    z-index: 999; /* Garante que o cabeçalho esteja acima de outros elementos */
+}
+
+header>.interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: -90px;
+ 
+}
+
+header a {
+    color: #838383;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover {
+    color: #e2e2e2;
+    transform: scale(1.05);
+}
+
+header nav ul {
+    list-style-type: none;
+    margin-left: -40px;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 53px;
+    margin-bottom: 10px;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    margin-left: 0px;
+
+}
+
+header .btn-contato button {
+    padding: 10px 20px; /* Mantenha o padding conforme necessário */
+    font-size: 13px;
+    font-weight: 600;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #e2e2e2;
+    margin-left: 13px;
+    position: relative; /* Adicione position: relative; */
+    top: -10px; /* Ajuste o valor de top conforme necessário para mover o botão para cima */
+}
+
+.btn button {
+    padding: 10px 40px;
+    font-size: 18px;
+    color: #111111;
+    font-weight: 400;
+    border: 2px solid #3cd5b3;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #e2e2e2;
+    margin-left: -6px;
+    /* Isso empurrará a imagem para a direita */
+    position: relative;
+    top: -69px;
+}
+
+.btn-cont button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #3cd5b3;
+    margin-left: 210px;
+    /* Isso empurrará a imagem para a direita */
+
+}
+
+button:hover,form .btn-enviar input:hover {
+    transform: scale(1.05);
+    transition: .3s;
+    box-shadow: 0px 0px 8px rgba(165, 165, 165, 0.87);
+}
+
+section.topo-do-site {
+    padding: 95px 4%;
+    margin-bottom: -175px;
+}
+
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.topo-do-site h1 {
+    margin-top: 60px;
+    color: #111111;
+    font-size: 38px;
+    line-height: 40px;
+    margin-left: -6px;
+}
+
+.topo-do-site .text-topo-site h1 span {
+    color: #3cd5b3;
+}
+
+.topo-do-site .text-topo-site p {
+    color: #111111;
+    margin: 20px 0px 60px;
+    text-align: left;
+    margin-left: -6px;
+}
+
+.img-topo-site img {
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    max-width: 145%;
+}
+
+/* Efeito de fade-in ao carregar a página */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Quando a página carrega, aplicar o efeito */
+
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease-out 0.5s, transform 1.0s ease-out 0.1s;
+}
+
+/* Quando a página carrega, aplicar o efeito */
+body.loaded .fade-in, body.loaded .fade-in-delay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ESTILO DO TOPO DO SITE */
+section.sobre {
+    padding: 80px 4%;
+    background-color: #111111;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(20px); /* Deslocada para baixo */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave */
+}
+
+section.sobre.visible {
+    opacity: 1; /* Tornar visível */
+    transform: translateY(0); /* Posição normal */
+}
+
+section.sobre .flex {
+    position: relative;
+}
+.sobre .img-sobre img {
+    max-width: 130%;
+    margin-top: 80px;
+}
+
+.sobre .text-sobre {
+    position: relative; 
+    color: #fff;
+    margin-top: 90px;
+    margin-left: 150px;
+}
+
+.sobre .text-sobre h2 {
+    font-size: 40px;
+    line-height: 40px;
+}
+
+.sobre .text-sobre h3 {
+    color: #3cd5b3;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.sobre .text-sobre p {
+    color: #fff;
+    padding: 0px 110px 0px 0px;
+    margin: 20px 0px;
+    text-align-last: left;
+}
+
+.sobre .text-sobre p span {
+    color: #3cd5b3;
+    font-weight: bold;
+}
+
+
+.btf-social button{
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #3cd5b3;
+    cursor: pointer;
+    border: 0;
+    font-size: 25px;
+    transform: 2s;
+}
+
+
+/* ESTILO DAS ESPECIALIDADES */
+.especialidades {
+    position: relative; 
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 80px 10%;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(20px); /* Deslocada para baixo */
+    transition: opacity 1s ease-out, transform 1s ease-out; Transição suave
+}
+
+.especialidades.visible {
+    opacity: 1; /* Tornar visível */
+    transform: translateY(0); /* Posição normal */
+}
+
+.especialidades .img-abstrat2 img {
+    position: absolute; /* Posiciona a imagem de forma absoluta em relação à seção */
+    right: 0; /* Garante que a imagem fique sempre no canto direito */
+    max-width: 50%; /* Define o tamanho máximo da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 0; /* Remove margens que possam deslocar a imagem */
+    margin-top: -134px; /* Ajusta margens para evitar sobreposição */
+    object-fit: cover; /* Garante que a imagem se ajuste ao espaço sem distorção */
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+}
+
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skills-category {
+    width: 22%;
+    margin-bottom: 20px;
+}
+
+.skills-category h3 {
+    margin-top: 30px;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #a3a3a3;
+    padding-bottom: 10px;
+    color: #111111;
+}
+
+.skill {
+    margin-bottom: 25px;
+}
+
+.skill span {
+    display: block;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    color: #111111;
+}
+
+.progress-bar {
+    background-color: #4c4c4c;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.progress {
+    background-color: #3cd5b3;
+    height: 100%;
+    border-radius: 20px;
+    width: 0; /* Inicialmente zerada */
+    transition: width 0.4s ease;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .skills-category {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-category {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* ESTILO DAS POTIFOLIO */
+
+/* Estilo da seção existente */
+section.Portifolio {
+    padding: 105px 10%;
+    background-color: #111111;
+}
+
+.Portifolio .img-abstrat img {
+    position: absolute; 
+    right: 0; 
+    max-width: 25%;
+    margin-top: 300px;
+}
+
+.Portifolio .img-abstrat0 img {
+    position: absolute; 
+    left: 0;
+    margin-left: -80px;
+    max-width: 30%;
+}
+
+section.Portifolio .flex {
+    gap: 60px;
+    margin-top: 100px;
+    margin-left: -100px;
+    margin-right: -100px;
+    justify-content: center;
+}
+
+.img-port {
+    width: 250px;
+    height: 360px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-port:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    background-color: #000000d2;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.img-port:hover .overlay {
+    opacity: 1;
+}
+
+/* Nova seção de design gráfico */
+.graphic-design-section {
+    margin-top: 100px; /* Aumentei o espaçamento do título para a seção de design gráfico */
+    text-align: center;
+}
+
+.graphic-design-section .titulo-projeto {
+    margin-top: 50px;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.graphic-slider {
+    position: relative;
+    overflow: hidden; /* Esconde partes que não cabem na visualização */
+}
+
+.graphic-flex {
+    display: flex; /* Exibe em linha */
+    transition: transform 0.3s ease; /* Suave transição ao mover */
+    width: 100%; /* Ajuste para 100% */
+    justify-content: center; /* Centraliza as imagens */
+}
+
+.graphic-port {
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 250px; /* Aumentei a largura */
+    height: 250px; /* Aumentei a altura */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+
+
+}
+
+/* Estilos dos botões de rolagem */
+.scroll-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.scroll-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 20px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* ESTILO FORMULARIO */
+
+section.Formulario {
+    padding: 40px 4%;
+
+}
+
+.Formulario .img-abstrat4 img {
+    position: relative; /* Posiciona a imagem de forma absoluta em relação à seção */
+    left: 0; /* Garante que a imagem fique sempre no canto direito */
+    max-width: 30%;
+    margin-left: -250px;
+    margin-bottom: -497px;
+}
+
+.Formulario .img-abstrat5 img {
+    position: absolute; /* Posiciona a imagem de forma absoluta em relação à seção */
+    right: 0; /* Garante que a imagem fique sempre no canto direito */
+    margin-top: -64px;
+    max-width: 30%;
+    
+}
+
+form {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    background-color: #74747462;
+    border: 0;
+    outline: 0;
+    padding: 15px 10px;
+    border-radius: 10px;
+    color: #111111;
+    font-size: 15px;
+}
+
+form textarea {
+    resize: none;
+    max-height: 500px;
+}
+
+form .btn-enviar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .btn-enviar input {
+    width: 150px;
+    background-color: #3cd5b3;
+    color: #111111;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 18px;
+}
+
+/* ESTILO RODAPE */
+
+footer {
+    padding: 5px 4%; /* Diminuindo o padding do rodapé para torná-lo mais compacto */
+    box-shadow: 0 0 10px #ffffff1d;
+    background-color: #111111;
+}
+
+.logo-footer img {
+    margin-bottom: -43px;
+    width: 90px; /* Diminuindo a largura da logo para não ficar muito grande */
+}
+
+footer .flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .line-footer p {
+    margin-bottom: -40px;
+    color: #fff;
+    margin: 3px 0; /* Reduzindo a margem vertical entre os textos */
+    text-align: center;
+    font-size: 13px;
+}
+
+footer .line-footer p i {
+    margin-bottom: -40px;
+    color: #3cd5b3;
+    font-size: 10px;
+}
+
+footer .line-footer {
+    
+    padding: 5px 0; /* Mantendo o padding da linha do copyright */
+}
+
+.borda {
+    
+    border-top: 1px solid #3cd5b3;
+    margin-top: 5px; /* Espaçamento menor acima da borda */
+}
+
+footer .btf-social {
+    margin-top: 12px;
+    margin-bottom: -60px;
+    display: flex;
+    justify-content: center;
+}
+
+footer .btf-social button {
+    margin-bottom: -40px;
+    background-color: transparent;
+    border: none;
+    margin: 0 3px; /* Reduzindo ainda mais o espaçamento entre os ícones */
+    cursor: pointer;
+}
+
+footer .btf-social i {
+    margin-bottom: -40px;
+    color: #ffffff;
+    font-size: 18px; /* Mantendo o tamanho dos ícones um pouco menor */
+}
+
+/*NAGEGABILIDADE*/
+
+@media screen and (max-width: 1000px) {
+    .flex{
+        flex-direction: column;
+    }
+
+    /*cabecalho*/
+    .menu-desktop, .btn-contato button{
+        display: none;
+    }
+    .btn button {
+    padding: 8px 15px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 400;
+    border: 2px solid #3cd5b3;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #111111;
+    margin-left: 10px;
+    /* Isso empurrará a imagem para a direita */
+    position: relative;
+    top: -62px;
+}
+.btn-cont button {
+    border: 2px solid #3cd5b3;
+    padding: 8px 15px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #3cd5b3;
+    margin-left: 123px;
+    /* Isso empurrará a imagem para a direita */
+    margin-top: -1px;
+
+
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    margin-top: 13px;
+
+}
+.topo-do-site h1 {
+    color: #fff;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 10px;
+    /* Isso empurrará a imagem para a direita */
+
+
+}
+
+.topo-do-site .text-topo-site p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+
+}
+
+section.topo-do-site {
+    padding: 30px 4%;
+    margin-top: 110px; /* Adicione um valor de margem superior para posicionar abaixo do cabeçalho */
+}
+
+.img-topo-site img {
+    display: none;
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+    max-width: 88%;
+    margin-top: -30px;
+    /* Isso moverá a imagem 20 pixels para cima */
+    margin-left: 220px;
+    /* Isso empurrará a imagem para a direita */
+}
+
+section.sobre {
+    padding: 10px 4%;
+    margin-top: -200px;
+}
+
+.sobre .text-sobre {
+    color: #fff;
+    margin-top: 20px;
+    /* Isso moverá a imagem 20 pixels para cima */
+    margin-left: -10px;
+    /* Isso empurrará a imagem para a direita */
+    font-size: 15px;
+    
+}
+
+.sobre .text-sobre h2 {
+    font-size: 30px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.sobre .text-sobre h3 {
+    color: #3cd5b3;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 30px;
+    font-size: 20px;
+    margin-left: 20px;
+    
+
+}
+
+.sobre .text-sobre P {
+    color: #fff;
+    padding: 10px 0px 0px 0px;
+    margin: 20px 20px;
+    text-align: justify;
+}
+.btf-social button{
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: -10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #3cd5b3;
+    cursor: pointer;
+    border: 0;
+    font-size: 25px;
+    transform: 2s;
+    
+}
+
+h2.titulo span{
+    color: #3cd5b3;
+}
+
+h2.titulo-2 span{
+    color: #3cd5b3;
+}
+
+h2.titulo-projeto span{
+    color: #3cd5b3;
+}
+
+section.especialidades{
+    margin-top: 100px;
+    padding: 40px 10%;
+    margin-bottom: -40px;
+    }
+
+    .img-port{
+        width: 150px;
+        height: 260px;
+        background-size: cover;
+        background-position: 100% 0%;
+        transition: 8s;
+        cursor: pointer;
+        border-radius: 30px;
+        position: relative;
+        margin-left: 163px;
+    
+    }
+    
+    .img-port:hover{
+        background-position: 100% 100%;
+    
+    }
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:102%;
+        background-color: #000000d2;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        opacity: 0;
+        transition: .5s;
+    }
+ 
+    form{
+        max-width: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 40px;
+    }
+    
+    form input, form textarea{
+        width: 100%;
+        background-color: #0000004d;
+        border: 0;
+        outline: 0;
+        padding: 15px 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 15px;
+    }
+    
+    form textarea{
+        resize: none;
+        max-height: 500px;
+    }
+    
+    form .btn-enviar{
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    form .btn-enviar input{
+        width: 100px;
+        background-color: #3cd5b3;
+        color: #111111;
+        font-weight: 700;
+        cursor: pointer;
+        transform: .5s;
+        font-size: 15px;
+        margin-bottom: 100px;
+    }
+
+    .logo-footer img{
+        width: 70px;
+        margin-top: 30px;
+        margin-bottom: -08px;
+        margin-left: 100px;
+    
+    }
+    footer .flex{
+        justify-content: space-between;
+        width: -50px;
+        
+    }
+    
+    footer .line-footer p i {
+   
+        color: #3cd5b3;
+        font-size: 15px;
+ 
+        
+    }
+    
+    footer .line-footer p{
+        margin-left: 28px;
+        color: #fff;
+        margin-top: -10;
+    
+    }
+    
+    footer .line-footer {
+
+        padding: 10px 0 ;
+        margin-left: 10px;
+    }
+    
+    .borda {
+        border-top: 2px solid #3cd5b3;
+        margin-top: -30px;
+    
+    }
+    
+    
+    footer .btf-social {
+         display: none;
+        margin-top: 29px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        margin-left: 55px;
+        
+
+    
+    }
+
+    footer{
+
+        padding: 1px 10%;
+        box-shadow:  0  0 10px  #ffffff1d;
+    }
+
+    .sobre .img-sobre img {
+        max-width: 100%;
+        margin-top: 50px;
+        /* Isso moverá a imagem 20 pixels para cima */
+        margin-left: -8px;
+        /* Isso empurrará a imagem para a direita */
+    
+    }
+}
