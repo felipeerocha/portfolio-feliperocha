@@ -827,7 +827,6 @@ footer .btf-social button:hover {
   .graphic-flex {
     display: flex;
     flex-wrap: nowrap;
-    gap: 20px;
     padding: 0 10px 20px 10px;
     width: max-content;
   }
