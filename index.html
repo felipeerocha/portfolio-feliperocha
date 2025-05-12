@@ -44,6 +44,7 @@
         <div class="btn-contato">
           <a
             href="https://wa.me/5561996406276?text=Ol%C3%A1%2C+Felipe%21+tudo+bem%3F"
+            class="btn-link"
           >
             <button>Contato</button>
           </a>
@@ -63,16 +64,18 @@
                 A <span>PIXEL</span>.
               </h1>
               <p class="typing-effect fade-in-delay">
-                Da estrutura do banco de dados ao design da interface, 
-                cada componente se conecta para entregar soluções completas, 
-                escaláveis e intuitivas. Com uma visão integrada do front-end ao back-end, 
-                busco transformar ideias em experiências digitais funcionais, eficientes e visualmente 
-                impactantes que aproximam pessoas e marcas.
+                Da estrutura do banco de dados ao design da interface, cada
+                componente se conecta para entregar soluções completas,
+                escaláveis e intuitivas. Com uma visão integrada do front-end ao
+                back-end, busco transformar ideias em experiências digitais
+                funcionais, eficientes e visualmente impactantes que aproximam
+                pessoas e marcas.
               </p>
               <div class="btn-cont fade-in">
                 <a
                   href="https://wa.me/5561996406276?text=Ol%C3%A1%2C+Felipe%21+tudo+bem%3F"
                   target="_blank"
+                  class="btn-link"
                 >
                   <button>Entrar em contato</button>
                 </a>
@@ -80,7 +83,7 @@
               <div class="btn fade-in">
                 <a
                   class="btn fade-in"
-                  href="https://drive.google.com/file/d/1KAU7O7e2KrOqnDe4SeoKG8En32yrwQz1/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1iF4ioU5TWoyr6pFw1_Ubme0Ql1M44YVD/view?usp=sharing"
                   download
                 >
                   <button>Download CV</button>
@@ -107,23 +110,29 @@
             <h2>OLÁ, ME CHAMO FELIPE ROCHA,</h2>
             <h3>Full Stack Developer & UI/UX Designer.</h3>
             <p>
-              Tenho 21 anos e estou cursando o 6º período de Engenharia de Software na Universidade Católica de Brasília.
-              Desde os 15 anos, iniciei no design criando logotipos e artes gráficas como freelancer. Com o tempo, o
-              feedback positivo me levou a me dedicar ao <span>design gráfico</span> e ao <span>desenvolvimento web.</span>
+              Tenho 21 anos e estou cursando o 6º período de Engenharia de
+              Software na Universidade Católica de Brasília. Desde os 15 anos,
+              iniciei no design criando logotipos e artes gráficas como
+              freelancer. Com o tempo, o feedback positivo me levou a me dedicar
+              ao <span>design gráfico</span> e ao
+              <span>desenvolvimento web.</span>
             </p>
             <p>
-              Tenho expertise em .NET C# para o desenvolvimento de backends robustos e escaláveis,
-               e utilizo React para criar interfaces dinâmicas e responsivas.
-                Minha abordagem é orientada a resultados, com foco na entrega de soluções
-                 tecnológicas que atendem às necessidades dos usuários e maximizam a performance
-                  e eficiência do sistema. 
+              Tenho expertise em .NET C# para o desenvolvimento de backends
+              robustos e escaláveis, e utilizo React para criar interfaces
+              dinâmicas e responsivas. Minha abordagem é orientada a resultados,
+              com foco na entrega de soluções tecnológicas que atendem às
+              necessidades dos usuários e maximizam a performance e eficiência
+              do sistema.
+            </p>
           </div>
+
           <div class="img-sobre-nova">
             <img src="IMG/FELIPE.png" alt="Foto de Felipe Rocha" />
           </div>
         </div>
       </section>
-      
+
       <script src="script.js"></script>
       <section class="especialidades fade-in" id="habilidades">
         <div class="interfase">
@@ -282,51 +291,29 @@
         <!-- Seção para as artes gráficas -->
         <div class="graphic-design-section">
           <h2 class="titulo-projeto">DESIGN GRÁFICO<span>;</span></h2>
-          <div class="graphic-flex">
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 1.jpg')"
-            ></div>
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 2.jpg')"
-            ></div>
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 3.jpg')"
-            ></div>
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 4.jpg')"
-            ></div>
+          <div class="graphic-scroll-wrapper">
+            <div class="graphic-flex">
+              <div
+                class="graphic-port"
+                style="background-image: url('IMG/photo 1.jpg')"
+              ></div>
+              <div
+                class="graphic-port"
+                style="background-image: url('IMG/photo 2.jpg')"
+              ></div>
+              <div
+                class="graphic-port"
+                style="background-image: url('IMG/photo 3.jpg')"
+              ></div>
+              <div
+                class="graphic-port"
+                style="background-image: url('IMG/photo 4.jpg')"
+              ></div>
+            </div>
           </div>
-          <div class="graphic-flex" style="display: none">
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 5.jpg')"
-            ></div>
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 6.jpg')"
-            ></div>
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 1.jpg')"
-            ></div>
-            <div
-              class="graphic-port"
-              style="background-image: url('IMG/photo\ 2.jpg')"
-            ></div>
-          </div>
-          <button
-            class="scroll-button"
-            id="scroll-right"
-            onclick="scrollRight()"
-          >
-            &gt;
-          </button>
         </div>
       </section>
+
       <script>
         let currentIndex = 0; // Índice atual das filas
         const flexContainers = document.querySelectorAll(".graphic-flex");
@@ -473,37 +460,33 @@
             </div>
           </div>
           <div class="line-footer borda">
-            <p>
-              Todos os direitos reservados.
-            </p>
-            <p>
-              &copy; 2025 por FELIPE ROCHA.
-            </p>
+            <p>Todos os direitos reservados.</p>
+            <p>&copy; 2025 por FELIPE ROCHA.</p>
           </div>
         </div>
       </footer>
     </main>
     <script>
       // Atualize seu JavaScript existente com isso
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
             // Desliza suavemente para a seção
             target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+              behavior: "smooth",
+              block: "start",
             });
-            
+
             // Ajuste adicional para garantir o snap
             setTimeout(() => {
-                window.scrollBy(0, 1);
+              window.scrollBy(0, 1);
             }, 1000);
-        }
-    });
-});
+          }
+        });
+      });
     </script>
   </body>
 </html>
