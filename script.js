@@ -1,154 +1,176 @@
-document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-        duration: 1000,
-        once: true,
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  // Inicialização do AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    const sectionsToFadeIn = document.querySelectorAll('.fade-in');
-    sectionsToFadeIn.forEach(section => {
-        observer.observe(section);
-    });
-
-    window.addEventListener("load", function () {
-        document.body.classList.add("loaded");
-    });
-
-    const menuMobile = document.querySelector('.menu-mobile');
-    const nav = document.querySelector('header nav');
-
-    if (menuMobile) {
-        menuMobile.addEventListener('click', function() {
-            nav.classList.toggle('active');
-        });
-        nav.querySelectorAll('a').forEach(item => {
-            item.addEventListener('click', () => {
-                nav.classList.remove('active');
-            });
-        });
+  // Animação inicial de fade-in para as seções principais
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
     }
+  );
 
-    const progressBars = document.querySelectorAll('.progress');
-    const skillsSection = document.getElementById('habilidades');
+  const sectionsToFadeIn = document.querySelectorAll(".fade-in");
+  sectionsToFadeIn.forEach((section) => {
+    observer.observe(section);
+  });
 
-    if (skillsSection) {
-        const skillsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    progressBars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        bar.style.width = width;
-                    });
-                    skillsObserver.unobserve(entry.target);
-                }
+  window.addEventListener("load", function () {
+    document.body.classList.add("loaded");
+  });
+
+  // Lógica para o Menu Mobile
+  const menuMobile = document.querySelector(".menu-mobile");
+  const nav = document.querySelector("header nav");
+
+  if (menuMobile) {
+    menuMobile.addEventListener("click", function () {
+      nav.classList.toggle("active");
+    });
+    nav.querySelectorAll("a").forEach((item) => {
+      item.addEventListener("click", () => {
+        nav.classList.remove("active");
+      });
+    });
+  }
+
+  // Animação das barras de progresso (Seção Habilidades)
+  const progressBars = document.querySelectorAll(".progress");
+  const skillsSection = document.getElementById("habilidades");
+
+  if (skillsSection) {
+    const skillsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            progressBars.forEach((bar) => {
+              const width = bar.getAttribute("data-width");
+              bar.style.width = width;
             });
-        }, { threshold: 0.5 });
+            skillsObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-        skillsObserver.observe(skillsSection);
-    }
+    skillsObserver.observe(skillsSection);
+  }
 
-    const projectTriggers = document.querySelectorAll(".img-port");
+  // Lógica para os Modais de Projeto
+  const projectTriggers = document.querySelectorAll(".img-port");
 
-    projectTriggers.forEach((trigger) => {
-      trigger.addEventListener("click", function () {
-        const projectId = this.getAttribute("data-project");
-        const modal = document.getElementById(`modal-${projectId}`);
-        if (modal) {
-          modal.style.display = "flex";
-        }
-      });
+  projectTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", function () {
+      const projectId = this.getAttribute("data-project");
+      const modal = document.getElementById(`modal-${projectId}`);
+      if (modal) {
+        modal.style.display = "flex";
+      }
     });
+  });
 
-    const closeButtons = document.querySelectorAll(".close-button");
+  const closeButtons = document.querySelectorAll(".close-button");
 
-    closeButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const modal = this.closest(".project-modal");
-        if (modal) {
-          modal.style.display = "none";
-        }
-      });
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const modal = this.closest(".project-modal");
+      if (modal) {
+        modal.style.display = "none";
+      }
     });
+  });
 
-    window.addEventListener("click", function (event) {
-      document.querySelectorAll(".project-modal").forEach((modal) => {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      });
+  window.addEventListener("click", function (event) {
+    document.querySelectorAll(".project-modal").forEach((modal) => {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     });
+  });
 
-    window.formatarTelefone = function(telefone) {
-        const apenasNumeros = telefone.value.replace(/\D/g, "");
-        const formatoTelefone = apenasNumeros
-            .replace(/(\d{2})(\d)(\d{4})(\d+)/, "($1) $2 $3-$4")
-            .trim();
-        telefone.value = formatoTelefone;
+  // --- FUNÇÃO PARA EXIBIR TOASTS ---
+  function showToast(message, type = "success") {
+
+    const toast = document.getElementById("toast-message");
+    const toastText = document.getElementById("toast-text");
+
+    toastText.textContent = message;
+    toast.className = "toast show " + type;
+
+    setTimeout(function () {
+      toast.className = toast.className.replace("show", "");
+    }, 3000);
+  }
+
+  // Função para formatar o telefone
+  window.formatarTelefone = function (telefone) {
+    const apenasNumeros = telefone.value.replace(/\D/g, "");
+    const formatoTelefone = apenasNumeros
+      .replace(/(\d{2})(\d)(\d{4})(\d+)/, "($1) $2 $3-$4")
+      .trim();
+    telefone.value = formatoTelefone;
+  };
+
+  // Lógica de envio do formulário de contato
+  const contatoForm = document.getElementById("contatoForm");
+  if (contatoForm) {
+    contatoForm.onsubmit = function (event) {
+      event.preventDefault();
+
+      const myForm = event.target;
+      const formData = new FormData(myForm);
+
+      formData.append("form-name", myForm.getAttribute("id"));
+
+      fetch("/", {
+        method: "POST",
+        body: new URLSearchParams(formData).toString(),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      })
+        .then((response) => {
+          if (response.ok) {
+            showToast("Mensagem enviada com sucesso!", "success");
+            contatoForm.reset();
+          } else {
+
+            showToast(
+              "Ops, algo deu errado! Por favor, tente novamente.",
+              "error"
+            );
+            console.error(
+              "Erro ao enviar formulário Netlify:",
+              response.statusText
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("Erro no fetch do formulário:", error);
+          showToast(
+            "Ops, algo deu errado! Por favor, tente novamente.",
+            "error"
+          );
+        });
     };
+  }
 
-    const contatoForm = document.getElementById("contatoForm");
-    if (contatoForm) {
-        contatoForm.onsubmit = function (event) {
-            event.preventDefault();
+  let currentIndex = 0;
+  const graphicFlexContainers = document.querySelectorAll(".graphic-flex");
 
-            const formData = new FormData(this);
-
-            fetch("envia.php", {
-                method: "POST",
-                body: formData,
-            })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Erro ao enviar o formulário");
-                }
-                return response.text();
-            })
-            .then((data) => {
-                const mensagemResposta = document.getElementById("mensagemResposta");
-                if (mensagemResposta) {
-                    mensagemResposta.textContent = "Mensagem enviada com sucesso!";
-                    mensagemResposta.style.color = "green";
-                    mensagemResposta.style.display = "block";
-                    contatoForm.reset();
-                }
-            })
-            .catch((error) => {
-                const mensagemResposta = document.getElementById("mensagemResposta");
-                if (mensagemResposta) {
-                    mensagemResposta.textContent =
-                        "Ops, algo deu errado! Pode entrar em contato comigo pelo WhatsApp: 61 99640-6276";
-                    mensagemResposta.style.color = "red";
-                    mensagemResposta.style.display = "block";
-                }
-            });
-        };
-    }
-
-    // Lógica para o scroll suave dos links do menu
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
+  function updateGraphicScroll() {
+    graphicFlexContainers.forEach((container, index) => {
+      container.style.display = index === currentIndex ? "flex" : "none";
     });
-
-    let currentIndex = 0; // Índice atual das filas
-    const graphicFlexContainers = document.querySelectorAll(".graphic-flex");
+  }
+  updateGraphicScroll();
 });

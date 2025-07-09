@@ -1362,3 +1362,37 @@ footer .btf-social button {
     font-size: 11px;
   }
 }
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1001;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  font-size: 17px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: bottom 0.5s ease-out, opacity 0.5s ease-out,
+    background-color 0.3s ease;
+}
+
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+.toast.show {
+  visibility: visible;
+  bottom: 60px;
+  opacity: 1;
+}

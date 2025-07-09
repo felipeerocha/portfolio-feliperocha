@@ -613,7 +613,7 @@
             <img src="IMG/p26.png" alt="" />
           </div>
           <h2 class="titulo-2">FALE <span>COMIGO.</span></h2>
-          <form action="envia.php" method="post" id="contatoForm">
+          <form method="POST" netlify id="contatoForm">
             <input
               type="text"
               name="nome"
@@ -726,6 +726,9 @@
         </div>
       </footer>
     </main>
+    <div id="toast-message" class="toast">
+      <p id="toast-text"></p>
+    </div>
     <script src="script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
