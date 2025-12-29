@@ -21,25 +21,25 @@ import { ProjectModal } from "@/components/ProjectModal";
 // --- DADOS ---
 const career = [
   {
-    role: "Systems Analyst",
-    company: "OSM Consultoria",
-    period: "2025 - Atual",
-    desc: "Implementação de Chatbots com IA (LLMs) e dashboards estratégicos com Python.",
-  },
-  {
     role: "Software Developer",
     company: "Pontype",
     period: "2025 - Atual",
     desc: "Desenvolvimento Full Stack (FastAPI/React) de CMS e portais. Foco em arquitetura escalável e Mobile-First.",
   },
   {
-    role: "Software Developer - FullStack",
+    role: "Analista de Sistemas",
+    company: "OSM Consultoria",
+    period: "2025 - Atual",
+    desc: "Implementação de Chatbots com IA (LLMs) e dashboards estratégicos com Python.",
+  },
+  {
+    role: "Dev FullStack",
     company: "Stefanini",
     period: "2024 - 2025",
     desc: "Arquitetura de Microsserviços .NET 8, BFF com NestJS e Microfrontends.",
   },
   {
-    role: "Software Engineer",
+    role: "Engenheiro de Software",
     company: "Impercap",
     period: "2024 - 2025",
     desc: "Apps Mobile React Native, deploy em Cloud e backend Azure SQL.",
@@ -113,20 +113,6 @@ const projects = [
     ],
   },
   {
-    title: "App Impercap Suporte",
-    desc: "Suporte técnico em apenas alguns cliques",
-    longDesc:
-      "Aplicativo desenvolvido para oferecer suporte técnico a profissionais, centralizando instruções, orientações e informações sobre produtos, com foco em facilitar instalações, manutenções e reduzir erros em campo.",
-    tech: ["Azure", "Docker", "React Native", ".NET", "Expo"],
-    link: "https://play.google.com/store/apps/details?id=com.Impercap.app&pcampaignid=web_share",
-    image: "/IMG/impercap.png",
-    challenges: [
-      "Centralização de informações técnicas, facilitando acesso rápido em campo.",
-      "Organização clara de conteúdos e instruções, reduzindo dúvidas e retrabalho.",
-      "Interface funcional e objetiva, otimizando o uso em ambientes operacionais.",
-    ],
-  },
-  {
     title: "Painel CMS",
     desc: "Gestão de materiais e publicações simplificada.",
     longDesc:
@@ -138,6 +124,20 @@ const projects = [
       "Gestão eficiente de conteúdos e publicações, otimizando o fluxo editorial.",
       "Interface clara para edição e organização de páginas, reduzindo complexidade operacional.",
       "Estrutura escalável e modular, facilitando manutenção e evolução do sistema.",
+    ],
+  },
+  {
+    title: "App Impercap Suporte",
+    desc: "Suporte técnico em apenas alguns cliques",
+    longDesc:
+      "Aplicativo desenvolvido para oferecer suporte técnico a profissionais, centralizando instruções, orientações e informações sobre produtos, com foco em facilitar instalações, manutenções e reduzir erros em campo.",
+    tech: ["Azure", "Docker", "React Native", ".NET", "Expo"],
+    link: "https://play.google.com/store/apps/details?id=com.Impercap.app&pcampaignid=web_share",
+    image: "/IMG/impercap.png",
+    challenges: [
+      "Centralização de informações técnicas, facilitando acesso rápido em campo.",
+      "Organização clara de conteúdos e instruções, reduzindo dúvidas e retrabalho.",
+      "Interface funcional e objetiva, otimizando o uso em ambientes operacionais.",
     ],
   },
 ];
@@ -201,7 +201,7 @@ export default function Home() {
         }}
       />
 
-      {/* HEADER HUD (CORRIGIDO: MENU CENTRALIZADO ABSOLUTO) */}
+      {/* HEADER HUD */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
           isScrolled
@@ -209,9 +209,7 @@ export default function Home() {
             : "py-8 bg-transparent border-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex justify-between items-center relative">
-          {" "}
-          {/* Adicionado 'relative' aqui */}
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
           {/* LOGO INOVADORA - FR TECH */}
           <div className="group cursor-pointer flex items-center gap-1 font-mono text-xl font-bold tracking-tighter z-10">
             <span className="text-zinc-600 group-hover:text-accent transition-colors duration-300">
@@ -224,38 +222,37 @@ export default function Home() {
               /&gt;
             </span>
           </div>
+
           {/* NAV CENTRALIZADA (ABSOLUTE) */}
           <nav className="hidden md:flex gap-8 text-sm font-medium text-zinc-400 absolute left-1/2 -translate-x-1/2">
             <a
               href="#about"
               className="hover:text-white transition hover:scale-105"
             >
-              Sobre
+              SOBRE
             </a>
             <a
               href="#stack"
               className="hover:text-white transition hover:scale-105"
             >
-              Tech
+              TECH
             </a>
             <a
               href="#projects"
               className="hover:text-white transition hover:scale-105"
             >
-              Cases
+              CASES
             </a>
           </nav>
-          {/* BOTÃO CRIATIVO (Efeito Líquido) */}
+
+          {/* BOTÃO FALE COMIGO */}
           <a
             href="https://wa.me/556199149491?text=Ol%C3%A1%2C+Felipe%21+Vi+seu+portf%C3%B3lio+e+gostaria+de+conversar."
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group overflow-hidden px-6 py-2 rounded-full bg-transparent border border-white/20 text-sm font-bold transition-all hover:border-accent hover:shadow-[0_0_20px_rgba(60,213,179,0.3)] z-10"
+            className="relative z-10 px-6 py-2 border border-accent/50 text-accent text-sm font-bold tracking-wider rounded uppercase hover:bg-accent hover:text-black transition-all duration-300"
           >
-            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
-              Fale Comigo
-            </span>
-            <div className="absolute inset-0 bg-accent transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+            Fale Comigo
           </a>
         </div>
       </header>
@@ -278,120 +275,63 @@ export default function Home() {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-[15%] left-[5%] w-24 h-24 rounded-full bg-zinc-800/50 backdrop-blur-md border border-white/5"
         />
-        <motion.div
-          animate={{ y: [0, 60, 0], opacity: [0.1, 0.2, 0.1] }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute top-[60%] right-[10%] w-40 h-40 rounded-full bg-accent/5 backdrop-blur-md border border-accent/10"
-        />
-
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[20%] left-[15%] w-16 h-16 border border-white/5 bg-white/2"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[20%] right-[20%] w-12 h-12 border border-accent/10 bg-accent/2"
-        />
-
         <div className="absolute top-1/2 left-0 w-[500px] h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent rotate-45 blur-xl opacity-30"></div>
-        <div className="absolute bottom-0 right-0 w-[800px] h-1 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent -rotate-12 blur-xl opacity-30"></div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.4, 0], y: [20, -20] }}
-          transition={{ duration: 4, repeat: Infinity, repeatDelay: 2 }}
-          className="absolute top-[30%] left-[10%] font-mono text-xs text-accent/20"
-        >
-          &lt;System /&gt;
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.4, 0], y: [20, -20] }}
-          transition={{ duration: 5, repeat: Infinity, repeatDelay: 3 }}
-          className="absolute bottom-[40%] right-[5%] font-mono text-xs text-purple-500/20"
-        >
-          {`{ deploy: true }`}
-        </motion.div>
       </div>
 
       {/* CONTEÚDO PRINCIPAL */}
       <div className="relative z-10">
-        {/* HERO SECTION */}
-        <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative pt-20">
-          <motion.div
-            style={{ y: yHero, opacity: opacityHero }}
-            className="flex flex-col items-center"
-          >
+        {/* HERO SECTION - GRADE ASSIMÉTRICA IGUAL REFERÊNCIA */}
+        <section className="min-h-screen flex items-center justify-center relative pt-20 px-6 overflow-hidden">
+          <div className="max-w-[90rem] w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* COLUNA ESQUERDA: IMAGEM HERO TOTAL (60% da tela para ficar GRANDE) */}
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: "spring", duration: 1.5 }}
-              className="mb-8 relative"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full h-[600px] lg:h-[680px] lg:col-span-7 flex items-center justify-center"
             >
-              <div className="absolute -inset-4 bg-accent/20 rounded-full blur-xl animate-pulse"></div>
-              <span className="relative px-6 py-2 rounded-full border border-accent/30 bg-black/50 backdrop-blur text-sm text-accent font-mono uppercase tracking-widest shadow-[0_0_15px_rgba(60,213,179,0.3)]">
-                System Initialized
-              </span>
+              <div className="relative w-full h-full scale-125 origin-center">
+                <Image
+                  src="/IMG/hero-home.png" // Imagem única com tudo
+                  alt="Felipe Rocha Hero"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  priority
+                />
+              </div>
             </motion.div>
 
-            <motion.h1
-              className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-200 to-zinc-600 leading-[1.1]"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              Felipe Rocha
-            </motion.h1>
-
-            <motion.p
-              className="text-xl md:text-2xl text-zinc-400 max-w-3xl mb-12 leading-relaxed"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              <span className="text-white font-semibold">
-                Software Engineer & Technical Product Manager.
-              </span>
-              <br />
-              Não apenas escrevo código. Eu crio sistemas escaláveis e
-              experiências memoráveis que resolvem problemas reais de negócio.
-            </motion.p>
-
+            {/* COLUNA DIREITA: TEXTO (40% da tela) */}
             <motion.div
-              className="flex flex-col md:flex-row gap-6"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-left z-30 lg:col-span-5 flex flex-col justify-center"
             >
-              <a
-                href="#projects"
-                className="group relative px-8 py-4 bg-white text-black font-bold rounded-lg overflow-hidden transition hover:scale-105"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Explorar Projetos <ArrowRight size={18} />
-                </span>
-                <div className="absolute inset-0 bg-accent transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-              </a>
-              <a
-                href="#about"
-                className="px-8 py-4 border border-zinc-700 text-zinc-300 rounded-lg font-bold hover:bg-zinc-900 hover:text-white transition flex items-center gap-2"
-              >
-                Sobre a Máquina
-              </a>
+              {/* Textos alinhados visualmente com a "passagem" da imagem */}
+              <h2 className="text-zinc-400 text-lg italic font-light tracking-widest mb-1">
+                FELIPE ROCHA
+              </h2>
+              <h3 className="text-zinc-500 text-sm italic font-light tracking-wide mb-12">
+                SOFTWARE ENGINEER & TECHNICAL PRODUCT MANAGER.
+              </h3>
+              <h1 className="text-2xl lg:text-4xl font-light leading-tight text-white mb-8 tracking-wide">
+                PROJETANDO O{" "}
+                <span className="text-accent font-bold">FUTURO</span> <br />
+                COM <span className="text-accent font-bold">
+                  EXPERIÊNCIAS
+                </span>{" "}
+                QUE <br />
+                CONECTAM E INOVAÇÕES <br />
+                QUE INSPIRAM.
+              </h1>
             </motion.div>
-          </motion.div>
+          </div>
 
-          {/* Scroll Indicator (PULANDO) */}
+          {/* Scroll Indicator */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, 10, 0] }} // Animação Yoyo
+            animate={{ opacity: 1, y: [0, 10, 0] }}
             transition={{
               delay: 1.5,
               duration: 2,
@@ -441,7 +381,6 @@ export default function Home() {
         {/* SOBRE MIM & CARREIRA */}
         <section id="about" className="py-20 max-w-7xl mx-auto px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            {/* COLUNA ESQUERDA: FOTO E INTRO */}
             <div className="lg:col-span-5 space-y-12">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: -50 }}
@@ -450,7 +389,6 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="relative group w-full max-w-md mx-auto"
               >
-                {/* Moldura Tech */}
                 <div className="absolute -inset-1 border border-zinc-800 rounded-2xl z-0 bg-zinc-900/50"></div>
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-accent -translate-x-2 -translate-y-2 z-20"></div>
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-accent translate-x-2 translate-y-2 z-20"></div>
@@ -499,7 +437,6 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* COLUNA DIREITA: CARREIRA E TEXTO */}
             <div className="lg:col-span-7">
               <motion.div
                 initial="hidden"
@@ -584,7 +521,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* GRID CONFIGURADO PARA 3 COLUNAS */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[400px] gap-6">
             {projects.map((project, i) => (
               <motion.div
@@ -593,10 +529,6 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                // LOGICA DE ZIG-ZAG PARA 6 ITENS:
-                // Linha 1: (0: Span 2), (1: Span 1)
-                // Linha 2: (2: Span 1), (3: Span 2)
-                // Linha 3: (4: Span 2), (5: Span 1)
                 className={`group relative ${
                   i === 0 || i === 3 || i === 4
                     ? "lg:col-span-2"
@@ -676,7 +608,6 @@ export default function Home() {
 
         <footer className="py-12 border-t border-zinc-900 bg-black text-center text-zinc-600 text-sm">
           <div className="flex justify-center gap-8 mb-6">
-            {/* GitHub */}
             <a
               href="https://github.com/felipeerocha"
               target="_blank"
@@ -684,8 +615,6 @@ export default function Home() {
             >
               <Github className="w-6 h-6 hover:text-white cursor-pointer transition hover:scale-110" />
             </a>
-
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/felipe-rocha-2a12b8239"
               target="_blank"
@@ -693,8 +622,6 @@ export default function Home() {
             >
               <Linkedin className="w-6 h-6 hover:text-white cursor-pointer transition hover:scale-110" />
             </a>
-
-            {/* E-mail */}
             <a href="mailto:felipe90rcha@hotmail.com">
               <Mail className="w-6 h-6 hover:text-white cursor-pointer transition hover:scale-110" />
             </a>
