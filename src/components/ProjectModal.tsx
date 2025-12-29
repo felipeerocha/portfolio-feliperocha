@@ -1,5 +1,5 @@
 'use client';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion"; // 1. Importar Variants
 import { X, ExternalLink, Github, Layers } from "lucide-react";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ interface Project {
   video?: string;
   link: string;
   challenges: string[];
-  repoLink?: string; // NOVO CAMPO OPCIONAL (?)
+  repoLink?: string; 
 }
 
 export const ProjectModal = ({ 
@@ -23,7 +23,8 @@ export const ProjectModal = ({
   onClose: () => void 
 }) => {
   
-  const modalVariants = {
+  // 2. Tipar explicitamente como Variants para corrigir o erro de build
+  const modalVariants: Variants = {
     hidden: { opacity: 0, scale: 0.9, y: 20 },
     visible: { 
       opacity: 1, 
@@ -93,7 +94,7 @@ export const ProjectModal = ({
                   >
                     <div className="flex items-center gap-2 mb-3">
                         <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-accent text-black rounded-full shadow-[0_0_10px_rgba(60,213,179,0.4)]">
-                            success case
+                            Case Study
                         </span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">{selectedProject.title}</h2>
@@ -143,7 +144,6 @@ export const ProjectModal = ({
                             Ver Online
                         </a>
                         
-                        {/* CONDICIONAL: Só aparece se repoLink existir */}
                         {selectedProject.repoLink && (
                             <a 
                                 href={selectedProject.repoLink} 
